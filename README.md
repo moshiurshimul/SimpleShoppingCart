@@ -1,3 +1,2 @@
 # Simple Shopping Cart
-
-# Demo Work
+Demo Work
