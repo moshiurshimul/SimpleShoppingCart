@@ -15,3 +15,28 @@ for (let i = 0; i < removeItemBtn.length; i++) {
     })
     
 }
+
+// Adding new item using Plus icon
+
+document.getElementById('phone-plus').addEventListener('click', function() {
+    let phonePlus = document.getElementById('phone-count');
+    let phoneCurrentCount = parseInt(phonePlus.value);
+    let phoneNewCount = phoneCurrentCount + 1;
+    phonePlus.value = phoneNewCount;
+    
+    let phonePrice = document.getElementById('phone-price');
+    let phonePriceValue = parseFloat(phonePrice.innerText);
+    let phonePriceTotal = phonePriceValue * phoneNewCount;
+    document.getElementById('phone-price').innerText = phonePriceTotal;
+})
+
+// Removing item using minus icon
+
+document.getElementById('phone-minus').addEventListener('click', function() {
+    let phoneMinus = document.getElementById('phone-count');
+    let phoneCurrentCount = parseInt(phoneMinus.value);
+    let phoneNewCount = phoneCurrentCount - 1;
+    phoneMinus.value = phoneNewCount;
+    
+    let phonePrice
+})
