@@ -38,14 +38,13 @@ document.getElementById('phone-minus').addEventListener('click', function() {
 function countBtn(isIncrease) {
         let phoneInput = document.getElementById('phone-count');
         let phoneCurrentCount = parseInt(phoneInput.value);
-        // let phoneNewCount = phoneCurrentCount + 1;
-        let phoneNewCount = phoneInput;
         if(isIncrease == true) {
             phoneNewCount = phoneCurrentCount + 1;
         }
-        if(isIncrease == false) {
+        if(isIncrease == false && phoneCurrentCount > 0 ) {
             phoneNewCount = phoneCurrentCount - 1;
         }
+
         phoneInput.value = phoneNewCount;
         
         let phonePriceTotal = phonePriceValue * phoneNewCount;
