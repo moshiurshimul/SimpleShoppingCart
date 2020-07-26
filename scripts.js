@@ -39,17 +39,44 @@ function countBtn(isIncrease) {
         let phoneInput = document.getElementById('phone-count');
         let phoneCurrentCount = parseInt(phoneInput.value);
         if(isIncrease == true) {
-            phoneNewCount = phoneCurrentCount + 1;
+            let phoneNewCount = phoneCurrentCount + 1;
         }
         if(isIncrease == false && phoneCurrentCount > 0 ) {
-            phoneNewCount = phoneCurrentCount - 1;
+            let phoneNewCount = phoneCurrentCount - 1;
         }
 
         phoneInput.value = phoneNewCount;
         
-        let phonePriceTotal = phonePriceValue * phoneNewCount;
-        document.getElementById('phone-price').innerText = phonePriceTotal;
+        // let phonePriceTotal = phonePriceValue * phoneNewCount;
+        // document.getElementById('phone-price').innerText = phonePriceTotal;
 }
 
+// Case Price 
 
+let casePrice = document.getElementById('case-Price');
+let casePriceValue = parseFloat(casePrice.innerText);
+
+document.getElementById('case-plus').addEventListener('click', function() {
+    caseCount(true);
+})
+
+document.getElementById('case-minus').addEventListener('click', function() {
+    caseCount(false);
+})
+
+
+function caseCount(isIncrease) {
+    let caseInput  = document.getElementById('case-count');
+    let caseCurrentCount = parseInt(caseInput.value);
+    if (isIncrease == true) {
+        caseNewCount = caseCurrentCount + 1;
+    }
+    if(isIncrease == false && caseCurrentCount > 0) {
+        caseNewCount = caseCurrentCount - 1; 
+    }
+    caseInput.value = caseNewCount;
+
+    let totalPrice = casePriceValue * caseNewCount;
+    document.getElementById('case-Price').innerText = totalPrice;
+}
 
