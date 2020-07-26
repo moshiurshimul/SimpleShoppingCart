@@ -24,10 +24,10 @@ let phonePrice = document.getElementById('phone-price');
 let phonePriceValue = parseFloat(phonePrice.innerText);
 
 document.getElementById('phone-plus').addEventListener('click', function() {
-    let phonePlus = document.getElementById('phone-count');
-    let phoneCurrentCount = parseInt(phonePlus.value);
+    let phoneInput = document.getElementById('phone-count');
+    let phoneCurrentCount = parseInt(phoneInput.value);
     let phoneNewCount = phoneCurrentCount + 1;
-    phonePlus.value = phoneNewCount;
+    phoneInput.value = phoneNewCount;
     
     let phonePriceTotal = phonePriceValue * phoneNewCount;
     document.getElementById('phone-price').innerText = phonePriceTotal;
@@ -37,10 +37,10 @@ document.getElementById('phone-plus').addEventListener('click', function() {
 // Removing item using minus icon
 
 document.getElementById('phone-minus').addEventListener('click', function() {
-    let phoneMinus = document.getElementById('phone-count');
-    let phoneCurrentCount = parseInt(phoneMinus.value);
+    let phoneInput = document.getElementById('phone-count');
+    let phoneCurrentCount = parseInt(phoneInput.value);
     let phoneNewCount = phoneCurrentCount - 1;
-    phoneMinus.value = phoneNewCount;
+    phoneInput.value = phoneNewCount;
 
     let phonePriceTotal = phonePriceValue * phoneNewCount;
     document.getElementById('phone-price').innerText = phonePriceTotal;
