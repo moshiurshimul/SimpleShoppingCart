@@ -14,35 +14,43 @@ for (let i = 0; i < removeItemBtn.length; i++) {
         }
     })
     
-}
-
-// Adding new item using Plus icon
+};
 
 //Phone Price
-
 let phonePrice = document.getElementById('phone-price');
 let phonePriceValue = parseFloat(phonePrice.innerText);
 
+
+// Adding new item using Plus icon
+
 document.getElementById('phone-plus').addEventListener('click', function() {
-    let phoneInput = document.getElementById('phone-count');
-    let phoneCurrentCount = parseInt(phoneInput.value);
-    let phoneNewCount = phoneCurrentCount + 1;
-    phoneInput.value = phoneNewCount;
-    
-    let phonePriceTotal = phonePriceValue * phoneNewCount;
-    document.getElementById('phone-price').innerText = phonePriceTotal;
-    
+    countBtn(true);
 })
 
 // Removing item using minus icon
-
 document.getElementById('phone-minus').addEventListener('click', function() {
-    let phoneInput = document.getElementById('phone-count');
-    let phoneCurrentCount = parseInt(phoneInput.value);
-    let phoneNewCount = phoneCurrentCount - 1;
-    phoneInput.value = phoneNewCount;
-
-    let phonePriceTotal = phonePriceValue * phoneNewCount;
-    document.getElementById('phone-price').innerText = phonePriceTotal;
+    countBtn(false);
 })
+
+
+// Incrase and decrase function
+
+function countBtn(isIncrease) {
+        let phoneInput = document.getElementById('phone-count');
+        let phoneCurrentCount = parseInt(phoneInput.value);
+        // let phoneNewCount = phoneCurrentCount + 1;
+        let phoneNewCount = phoneInput;
+        if(isIncrease == true) {
+            phoneNewCount = phoneCurrentCount + 1;
+        }
+        if(isIncrease == false) {
+            phoneNewCount = phoneCurrentCount - 1;
+        }
+        phoneInput.value = phoneNewCount;
+        
+        let phonePriceTotal = phonePriceValue * phoneNewCount;
+        document.getElementById('phone-price').innerText = phonePriceTotal;
+}
+
+
 
