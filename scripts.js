@@ -20,63 +20,59 @@ for (let i = 0; i < removeItemBtn.length; i++) {
 let phonePrice = document.getElementById('phone-price');
 let phonePriceValue = parseFloat(phonePrice.innerText);
 
+// Case Price 
 
-// Adding new item using Plus icon
+let casePrice = document.getElementById('case-price');
+let casePriceValue = parseFloat(casePrice.innerText);
+
+
+// Adding phone and removeing
 
 document.getElementById('phone-plus').addEventListener('click', function() {
-    countBtn(true);
+    addingAndRemovingProduct('phone', true);
+});
+
+document.getElementById('phone-minus').addEventListener('click', function() {
+    addingAndRemovingProduct('phone', false);
+});
+
+// Adding Case and removing
+
+document.getElementById('case-plus').addEventListener('click', function() {
+    addingAndRemovingProduct('case', true);
 })
 
-// Removing item using minus icon
-document.getElementById('phone-minus').addEventListener('click', function() {
-    countBtn(false);
+document.getElementById('case-minus').addEventListener('click', function() {
+    addingAndRemovingProduct('case', false);
 })
 
 
 // Incrase and decrase function
 
-function countBtn(isIncrease) {
-        let phoneInput = document.getElementById('phone-count');
-        let phoneCurrentCount = parseInt(phoneInput.value);
-        if(isIncrease == true) {
-            let phoneNewCount = phoneCurrentCount + 1;
-        }
-        if(isIncrease == false && phoneCurrentCount > 0 ) {
-            let phoneNewCount = phoneCurrentCount - 1;
-        }
+function addingAndRemovingProduct(product, isIncrease) {
+    let productInput = document.getElementById(product + '-count');
+    let productCurrentCount = parseInt(productInput.value);
 
-        phoneInput.value = phoneNewCount;
-        
-        // let phonePriceTotal = phonePriceValue * phoneNewCount;
-        // document.getElementById('phone-price').innerText = phonePriceTotal;
-}
-
-// Case Price 
-
-let casePrice = document.getElementById('case-Price');
-let casePriceValue = parseFloat(casePrice.innerText);
-
-document.getElementById('case-plus').addEventListener('click', function() {
-    caseCount(true);
-})
-
-document.getElementById('case-minus').addEventListener('click', function() {
-    caseCount(false);
-})
-
-
-function caseCount(isIncrease) {
-    let caseInput  = document.getElementById('case-count');
-    let caseCurrentCount = parseInt(caseInput.value);
-    if (isIncrease == true) {
-        caseNewCount = caseCurrentCount + 1;
+    // checking incrase and decrase
+    if(isIncrease == true) {
+        productNewCount = productCurrentCount + 1;
     }
-    if(isIncrease == false && caseCurrentCount > 0) {
-        caseNewCount = caseCurrentCount - 1; 
+    if(isIncrease == false && productCurrentCount > 0) {
+        productNewCount = productCurrentCount - 1;
     }
-    caseInput.value = caseNewCount;
 
-    let totalPrice = casePriceValue * caseNewCount;
-    document.getElementById('case-Price').innerText = totalPrice;
-}
+    productInput.value = productNewCount;
 
+    // checking Phone or case 
+
+    if(product == 'phone') {
+        productPrice = productNewCount * phonePriceValue;
+    }
+    if(product == 'case') {
+        productPrice = productNewCount * casePriceValue;
+    }
+
+    document.getElementById(product + '-price').innerText = productPrice;
+};
+
+// Grand Total
